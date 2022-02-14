@@ -1,11 +1,22 @@
-provider "aws" {
-  region = "us-east-2"
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
+
+  required_version = ">= 1.1.0"
 }
 
-resource "aws_vpc" "Main" {            # Creating VPC here
-  cidr_block       = "10.0.0.0/24" # Defining the CIDR block use 10.0.0.0/24 for demo
-  instance_tenancy = "default"
-  tags = {
-    Name = "Main"
-  }
+provider "aws" {
+  profile = "default"
+  region  = "us-west-2"
 }
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-08d70e59c07c61a3a"
+  instance_type = "t2.micro"
+}
+
