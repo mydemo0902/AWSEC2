@@ -20,7 +20,7 @@ resource "aws_instance" "app_server" {
   security_groups = [ "My VPC Security Group" ]
   key_name = "myaws"
   tags = {
-    Name = "myDemoServerInstance"
+    Name = "myDemoServerInstance1"
   }
 }
 
