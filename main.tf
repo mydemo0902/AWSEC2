@@ -19,5 +19,8 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
   security_groups = [ "My VPC Security Group" ]
   key_name = "myaws"
+  tags = {
+    Name = myDemoServerInstance
+  }
 }
 
